@@ -4,7 +4,13 @@ const app = express();
 const port = 3100;
 const cors = require('cors');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://hostproj-3f208.web.app', 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
