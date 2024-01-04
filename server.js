@@ -5,15 +5,14 @@ const port = 3100;
 const cors = require('cors');
 
 const corsOptions = {
-  origin: 'https://hostproj-3f208.web.app', 
+  origin: '*', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: false,
-  allowedHeaders: 'Content-Type,Authorization'
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.options("*",cors())
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri ='mongodb+srv://Slinger:cleanbandit1212@cluster0.g6kgz0u.mongodb.net/?retryWrites=true&w=majority';
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -32,6 +31,7 @@ async function run() {
     await client.db('test').command({ ping: 1 });
     console.log('Pinged your deployment. You successfully connected to MongoDB!');
   } finally {
+    // Ensures that the client will close when you finish/error
     // await client.close();
   }
 }
