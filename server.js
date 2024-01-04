@@ -5,7 +5,7 @@ const port = 3100;
 const cors = require('cors');
 
 const corsOptions = {
-  origin: '*', 
+  origin: 'https://hostproj-3f208.web.app', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 };
@@ -31,7 +31,6 @@ async function run() {
     await client.db('test').command({ ping: 1 });
     console.log('Pinged your deployment. You successfully connected to MongoDB!');
   } finally {
-    // Ensures that the client will close when you finish/error
     // await client.close();
   }
 }
