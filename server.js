@@ -5,7 +5,7 @@ const port = 3100;
 const cors = require('cors');
 
 const corsOptions = {
-  origin: '*', 
+  origin: 'https://hostproj-3f208.web.app', 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: false,
   allowedHeaders: 'Content-Type,Authorization'
