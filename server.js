@@ -7,7 +7,12 @@ const cors = require('cors');
 
 app.use(express.json());
 app.options("*",cors())
-app.use(cors());
+app.use(cors({
+  origin: 'https://hostproj-3f208.web.app', // specify the domain you want to allow
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // specify the methods you want to allow
+  allowedHeaders: ['Content-Type', 'Authorization'] // specify the headers you want to allow
+}));
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri ='mongodb+srv://Slinger:cleanbandit1212@cluster0.g6kgz0u.mongodb.net/?retryWrites=true&w=majority';
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
