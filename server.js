@@ -6,6 +6,7 @@ const cors = require('cors');
 
 
 app.use(express.json());
+app.options("*",cors())
 app.use(cors());
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const uri ='mongodb+srv://Slinger:cleanbandit1212@cluster0.g6kgz0u.mongodb.net/?retryWrites=true&w=majority';
