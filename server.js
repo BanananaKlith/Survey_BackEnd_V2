@@ -37,6 +37,10 @@ run().catch(console.dir);
 app.get('/login', async (req, res) => {
   // Create a JWT token
   const token = jwt.sign({ userId: 'user_id' }, 'q5$28k3y');
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Credentials', 'true');
   res.send({ token });
 });
 // Middleware for validating JWT token
