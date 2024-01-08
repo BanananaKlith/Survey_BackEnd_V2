@@ -7,7 +7,7 @@ const cors = require('cors');
 
 app.use(express.json());
 app.use(cors({
-    origin:"*"
+    origin: 'https://hostproj-3f208.web.app',
 }))
 
 
