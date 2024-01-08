@@ -37,7 +37,7 @@ run().catch(console.dir);
 app.get('/login', async (req, res) => {
   // Create a JWT token
   const token = jwt.sign({ userId: 'user_id' }, 'q5$28k3y');
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.header('Access-Control-Allow-Credentials', 'true');
@@ -63,7 +63,7 @@ app.get('/QAsGet',validateToken, async (req, res) => {
     await client.db('test').command({ ping: 1 });
     const testCollection = client.db().collection('surveyCollection');
     const quest = await testCollection.find({}).toArray();
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -95,7 +95,7 @@ app.get('/QAsGet/:id',validateToken, async (req, res) => {
     if (!result) {
       return res.status(404).json({ error: 'Data not found' });
     }
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -120,7 +120,7 @@ app.post('/QAsPost',validateToken, async (req, res) => {
     };
     // Insert the new document into the testCollection collection
     const result = await testCollection.insertOne(newDocument);
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -164,7 +164,7 @@ app.put('/QAsPut/:id',validateToken, async (req, res) => {
     if (result.matchedCount === 0) {
       return res.status(404).json({ error: 'Data not found' });
     }
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -188,7 +188,7 @@ app.get('/ResGet/:token', async (req, res) => {
 
     // Find all documents with the same assessorToken
     const results = await surveyCollection.find({ assessorToken: token }).toArray();
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
@@ -217,7 +217,7 @@ app.post('/ResPost', async (req, res) => {
     };
     // Insert the new document into the surveyCollection collection
     const result = await surveyCollection.insertOne(newDocument);
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', 'https://hostproj-3f208.web.app');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Credentials', 'true');
